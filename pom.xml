@@ -13,7 +13,7 @@
 
 	<groupId>com.idontchop</groupId>
 	<artifactId>spring-data-querydsl-value-operators</artifactId>
-	<version>6.0.0</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>Spring Data QueryDSL value operators</name>
@@ -27,6 +27,14 @@
 			<distribution>Maven Central repository</distribution>
 		</license>
 	</licenses>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/idontchop/spring-data-querydsl-value-operators</url>
+		</repository>
+	</distributionManagement>
 
 	<developers>
 		<developer>
@@ -137,19 +145,16 @@
 			<artifactId>spring-data-rest-webmvc</artifactId>
 			<scope>provided</scope>
 		</dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.6.0</version>
         </dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>6.2.0</version>
-</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>6.2.0</version>
+		</dependency>
 
 
 		<dependency>
