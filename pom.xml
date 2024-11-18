@@ -1,4 +1,4 @@
-<!-- Copyright (c) 2018 @gt_tech Licensed under the Apache License, Version 
+<!-- Licensed under the Apache License, Version 
 	2.0 (the "License"); you may not use this file except in compliance with 
 	the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
 	Unless required by applicable law or agreed to in writing, software distributed 
@@ -13,17 +13,12 @@
 
 	<groupId>org.galegofer</groupId>
 	<artifactId>spring-data-querydsl-value-operators</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>6.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>Spring Data QueryDSL value operators</name>
 
 	<inceptionYear>2018</inceptionYear>
-
-	<issueManagement>
-		<system>Bitbucket Repo Issue Tracker</system>
-		<url>https://github.com/galegofer/spring-data-querydsl-value-operators/issues</url>
-	</issueManagement>
 
 	<licenses>
 		<license>
@@ -33,21 +28,12 @@
 		</license>
 	</licenses>
 
-	<scm>
-		<connection>scm:git:git@github.com:galegofer/spring-data-querydsl-value-operators.git</connection>
-		<developerConnection>scm:git@github.com:galegofer/spring-data-querydsl-value-operators.git
-        </developerConnection>
-		<url>https://github.com/galegofer/spring-data-querydsl-value-operators/</url>
-	</scm>
-
 	<developers>
 		<developer>
 			<id>gt_tech</id>
 			<name>GT</name>
 			<roles>
-				<role>Product owner</role>
-				<role>Design</role>
-				<role>Developer</role>
+				<role>Product Founder</role>
 			</roles>
 		</developer>
 		<developer>
@@ -57,37 +43,30 @@
 				<role>Developer</role>
 			</roles>
 		</developer>
+		<developer>
+			<id>idontchop</id>
+			<name>Nathan Dunn</name>
+			<roles>
+				<role>Developer</role>
+				<role>Maintainer</role>
+			</roles>
+		</developer>
 	</developers>
 
 	<description>
-		Based on https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/src/master/ credits to: gt_tech
+		Based on https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/src/master/ 
 
-
-        This component provides extensions in terms of "Value operators" in search input fields on top of Querydsl and
-        it's Spring data integration. These value operators embellish the default out of the box capabilities in
-        Spring Data/Querydsl, which is by far statically compiled, by allowing service consumers to plugin different
-        value operators in search fields and thus perform rich/complex queries.
+		Maintained for personal usage. If the above package is being maintained elsewhere, please contact.
     </description>
-	<url>https://github.com/galegofer/spring-data-querydsl-value-operators</url>
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
+	<url>https://github.com/idontchop/spring-data-querydsl-value-operators</url>
 
 	<properties>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<java.source.version>17</java.source.version>
-		<java.target.version>17</java.target.version>
+		<java.source.version>21</java.source.version>
+		<java.target.version>21</java.target.version>
 
 		<spring.boot.version>3.2.2</spring.boot.version>
 		<commons.collection.version>4.4</commons.collection.version>
@@ -148,6 +127,30 @@
 			<artifactId>spring-data-commons</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-webmvc</artifactId>
+			<scope>provided</scope>
+		</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>6.2.0</version>
+</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -193,7 +196,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.26</version>
+			<version>1.18.34</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -258,7 +261,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-            <scope>test</scope>
+            <!-- <scope>test</scope> -->
 		</dependency>
 
 		<dependency>
@@ -455,7 +458,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>${project.basedir}}/src/test/groovy</source>
+								<source>${project.basedir}/src/test/groovy</source>
 								<source>${querydsl.generated.sources.target.directory}</source>
 							</sources>
 						</configuration>
@@ -465,39 +468,6 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-checkstyle-plugin
-										</artifactId>
-										<versionRange>
-											[2.17,)
-										</versionRange>
-										<goals>
-											<goal>check</goal>
-											<goal>checkstyle</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
