@@ -4,7 +4,9 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.DateTimePath;
 import org.apache.commons.lang3.Validate;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 class DateTimePathExpressionProviderImpl extends BaseExpressionProvider<DateTimePath> {
@@ -77,16 +79,15 @@ class DateTimePathExpressionProviderImpl extends BaseExpressionProvider<DateTime
 
     private boolean isDate(String dateString) {
         try {
-            new Date(dateString);
-
+            ZonedDateTime.parse(dateString, DateTimeFormatter.ISO_ZONED_DATE_TIME);
             return true;
-        } catch (IllegalArgumentException iae) {
+        } catch (DateTimeParseException iae) {
             return false;
         }
     }
 
-    private Date convertToDate(String dateString) {
+    private ZonedDateTime convertToDate(String dateString) {
         // use the same conversion as used by the Conversion service
-        return new Date(dateString);
+        return ZonedDateTime.parse(dateString, DateTimeFormatter.ISO_ZONED_DATE_TIME);
     }
 }
