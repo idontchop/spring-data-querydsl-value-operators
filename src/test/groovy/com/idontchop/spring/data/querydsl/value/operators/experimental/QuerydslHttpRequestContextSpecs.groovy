@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package org.galegofer.spring.data.querydsl.value.operators.experimental
+package com.idontchop.spring.data.querydsl.value.operators.experimental
 
 import com.querydsl.core.types.EntityPath
 import com.querydsl.core.types.Path

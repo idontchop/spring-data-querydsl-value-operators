@@ -15,7 +15,7 @@
  *******************************************************************************/
 package com.idontchop.spring.data.querydsl.value.operators.integration.dao;
 
-import com.galegofer.spring.data.querydsl.value.operators.integration.model.QUser;
+import com.idontchop.spring.data.querydsl.value.operators.integration.model.QUser;
 import com.idontchop.spring.data.querydsl.value.operators.ExpressionProviderFactory;
 import com.idontchop.spring.data.querydsl.value.operators.integration.model.User;
 import com.querydsl.core.BooleanBuilder;
