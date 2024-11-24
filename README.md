@@ -1,12 +1,7 @@
-[![Build Status](https://img.shields.io/bitbucket/pipelines/gt_tech/spring-data-querydsl-value-operators.svg)](https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/addon/pipelines/home)    [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)   [![Maven Central](https://img.shields.io/maven-central/v/org.bitbucket.gt_tech/spring-data-querydsl-value-operators.svg)](http://search.maven.org/#search|ga|1|g%3A%22org.bitbucket.gt_tech%22%20AND%20a%3A%22spring-data-querydsl-value-operators%22)   [![Javadocs](https://www.javadoc.io/badge/org.bitbucket.gt_tech/spring-data-querydsl-value-operators.svg?label=javadoc)](https://www.javadoc.io/doc/org.bitbucket.gt_tech/spring-data-querydsl-value-operators)
+Project forked from [library](https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/src/master/querydsl-value-operators/) and [fork](https://github.com/galegofer/spring-data-querydsl-value-operators) which appears to be no longer maintained. The goal of this fork is to
+bring the library current and add out-of-the-box support for Spring Data Rest endpoints using the [Openfeign fork of Querydsl](https://github.com/openfeign/querydsl).
 
-Goal of this component is to provide easy-to-use, reusable SDK [library](https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/src/master/querydsl-value-operators/) that can be plugged into any Spring framework powered RESTful API which is required to provide a rich Search API supporting complex query clauses.
-
-[Spring Data Querydsl Value Operators](https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators) decorates Spring Data's Querydsl integration by providing various value operators to create flexible and rich search (or querying) capabilities on RESTful resources. For folks in hurry, this library decorates on top of **_Spring Data_** and **_Querydsl_** to provide rich, reusable, plug-and-play type of framework for complex searches.
-
-For benefit of readers, [QueryDSL](http://www.querydsl.com/) provides an elegant, unique typesafe queries for variety of persistent stores. This document will not attempt to explain Querydsl and readers are advised to directly visit its website for documentation. Spring framework provides [extensions](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#core.extensions.querydsl) with QueryDSL to allow easier querying mechanism on top if it's powerful [Repository](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.create-instances.java-config) abstraction, in addition it also provides an easy way for API consumers to follow the API resources object graph and identify searchable input fields. While it's not absolutely mandatory to know those two frameworks before reviewing this documentation or getting started on using this library, but some level of familiarity with those components or the problem domain they operate in would help a lot in appreciating the drivers as well as implementation and usage of this component.
-
-**Other project reports are available _[here](https://gt-tech.bitbucket.io/spring-data-querydsl-value-operators/README.html)_**
+[Spring Data Querydsl Value Operators](https://github.com/idontchop/spring-data-querydsl-value-operators) decorates Spring Data's Querydsl integration by providing various value operators to create flexible and rich search (or querying) capabilities on RESTful resources. For folks in hurry, this library decorates on top of **_Spring Data_** and **_Querydsl_** to provide rich, reusable, plug-and-play type of framework for complex searches.
 
 # Drivers
 Section provides some of the thoughts that went into development of this component both from conceptual and technical perspective.
@@ -116,10 +111,6 @@ The out of the box capability in the above two frameworks solves for some of the
     * _/search?address.city=eq(Dallas)&address.city=or(eq(Austin))_
       Usage of or(..) in a multi-valued search to indicate to search that user is requesting for either of value to succeed on a resource record to be returned.
       More composition examples were shown earlier in this section and also would be available later in this write-up and/or in example application.
-
-###### Why is this library named as **value-operators or what are value operators?
-Since the name of search fields derives from resource graph, using additional prefix/suffix for operators within field names would strip the elegance of Search API to some degree, it was decided to introduce the additional operators within the **input value** of search fields _(e.g.: /uri?**field=operator(value)**....)_ and hence this module is named as _*****value-operators***_
-
 
 # Features
 Library provides various value-operators as defined in further sub-sections.
@@ -249,11 +240,7 @@ Readers can skip the other sub-sections here and can directly jump to **Example 
 _Spring Data querydsl value operators_ is available through  Maven central repository. Maven users can add below dependency in your POM. Users are always advised to check maven central for latest updates to version.
 
 ```xml
-<dependency>
-    <groupId>org.bitbucket.gt_tech</groupId>
-    <artifactId>spring-data-querydsl-value-operators</artifactId>
-    <version>x.x.x</version> <!-- 1.0.0 or latest version -->
-</dependency>
+(in development)
 ```
 
 For **snapshot** (or milestone versions), following repository should be added in Maven settings. Users must note that these versions may not be stable due to them being still in active development process.
@@ -272,15 +259,6 @@ For **snapshot** (or milestone versions), following repository should be added i
     </repository>
 </repositories>
 ```
-##### Building from source
-The component can be built directly from source using following commands:
-```cmd
-$ git clone https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators.git
-$ cd querydsl-value-operators
-$ mvn -Dskip.checkStyle=true -Dskip.javadocs.generation=true -Pdefault,integration-tests,reporting clean install
-```
-### Bootstrapping Spring data modules
-Most of this SDK's downstream dependency comes from **_[spring-data-common](https://docs.spring.io/spring-data/commons/docs/current/reference/html/)_**, however, it anticipates certain bootstrap dependencies depending on the choice of underlying persistence store. This is also anyway a required step for application's working with Spring data. Following section provides the dependencies required to work with both certified/supported persistence targets:
 
 * **MongoDB**
   Following are required bootstrap dependencies to make Spring data MongoDB as well as Querydsl work. The full working example can be seen in MongoDB based [example application's POM file](https://bitbucket.org/gt_tech/spring-data-querydsl-value-operators/src/master/examples/mongodb-spring-data-querydsl-value-operators-example/pom.xml)
