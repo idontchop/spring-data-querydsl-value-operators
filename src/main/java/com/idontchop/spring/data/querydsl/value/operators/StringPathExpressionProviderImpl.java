@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath> {
 
-    private static final Pattern WHITE_LISTED = Pattern.compile("[A-Za-z0-9-_@:]{1,64}");
+    private static final Pattern WHITE_LISTED = Pattern.compile("[A-Za-z0-9-_@:.]{1,64}");
 
     public StringPathExpressionProviderImpl() {
         super(List.of(Operator.EQUAL, Operator.NOT_EQUAL, Operator.CONTAINS, Operator.STARTS_WITH, Operator.STARTSWITH,
