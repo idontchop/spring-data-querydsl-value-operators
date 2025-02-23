@@ -74,7 +74,7 @@
 		<java.source.version>21</java.source.version>
 		<java.target.version>21</java.target.version>
 
-		<spring.boot.version>3.4.1</spring.boot.version>
+		<spring.boot.version>3.4.3</spring.boot.version>
 		<commons.collection.version>4.4</commons.collection.version>
 		<guava.version>33.0.0-jre</guava.version>
 		<querydsl.version>5.0.0</querydsl.version>
