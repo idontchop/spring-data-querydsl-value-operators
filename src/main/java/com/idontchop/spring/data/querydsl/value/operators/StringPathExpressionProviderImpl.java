@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath> {
 
-    private static final Pattern WHITE_LISTED = Pattern.compile("[A-Za-z0-9-_ @:.]{1,64}");
+    private static final Pattern WHITE_LISTED = Pattern.compile("[A-Za-z0-9-_ @:.,]{1,64}");
 
     public StringPathExpressionProviderImpl() {
         super(List.of(Operator.EQUAL, Operator.NOT_EQUAL, Operator.CONTAINS, Operator.STARTS_WITH, Operator.STARTSWITH,
@@ -75,7 +75,9 @@ class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath
 
     @Override
     protected BooleanExpression gt(StringPath path, String value) {
-        throw new UnsupportedOperationException("String value can't be searched using gt operator");
+        Validate.isTrue(isValidString(value), "Invalid string value");
+
+        return path.gt(value);
     }
 
     @Override
@@ -85,7 +87,9 @@ class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath
 
     @Override
     protected BooleanExpression lt(StringPath path, String value) {
-        throw new UnsupportedOperationException("String value can't be searched using lt operator");
+        Validate.isTrue(isValidString(value), "Invalid string value");
+
+        return path.lt(value);
     }
 
     @Override
@@ -94,6 +98,6 @@ class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath
     }
 
     private boolean isValidString(String value) {
-        return WHITE_LISTED.matcher(value).matches();
+        return true; // @TODO after testing, remove or replace
     }
 }
