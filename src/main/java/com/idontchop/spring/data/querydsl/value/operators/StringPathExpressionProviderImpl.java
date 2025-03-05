@@ -77,7 +77,7 @@ class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath
     protected BooleanExpression gt(StringPath path, String value) {
         Validate.isTrue(isValidString(value), "Invalid string value");
 
-        return path.gt(value);
+        return path.goe(value);
     }
 
     @Override
@@ -89,7 +89,7 @@ class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath
     protected BooleanExpression lt(StringPath path, String value) {
         Validate.isTrue(isValidString(value), "Invalid string value");
 
-        return path.lt(value);
+        return path.loe(value);
     }
 
     @Override
