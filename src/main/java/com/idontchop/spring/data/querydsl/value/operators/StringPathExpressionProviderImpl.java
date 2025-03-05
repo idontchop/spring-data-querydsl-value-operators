@@ -13,7 +13,8 @@ class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath
 
     public StringPathExpressionProviderImpl() {
         super(List.of(Operator.EQUAL, Operator.NOT_EQUAL, Operator.CONTAINS, Operator.STARTS_WITH, Operator.STARTSWITH,
-            Operator.ENDS_WITH, Operator.ENDSWITH, Operator.NOT, Operator.MATCHES, Operator.CASE_IGNORE));
+            Operator.ENDS_WITH, Operator.ENDSWITH, Operator.NOT, Operator.MATCHES, Operator.CASE_IGNORE,
+            Operator.GREATER_THAN, Operator.GREATER_THAN_OR_EQUAL, Operator.LESS_THAN, Operator.LESS_THAN_OR_EQUAL));
     }
 
     @Override
