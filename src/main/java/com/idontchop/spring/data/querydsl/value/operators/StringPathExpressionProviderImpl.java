@@ -78,24 +78,28 @@ class StringPathExpressionProviderImpl extends BaseExpressionProvider<StringPath
     protected BooleanExpression gt(StringPath path, String value) {
         Validate.isTrue(isValidString(value), "Invalid string value");
 
-        return path.goe(value);
+        return path.gt(value);
     }
 
     @Override
     protected BooleanExpression gte(StringPath path, String value) {
-        throw new UnsupportedOperationException("String value can't be searched using gte operator");
+        Validate.isTrue(isValidString(value), "Invalid string value");
+
+        return path.goe(value);
     }
 
     @Override
     protected BooleanExpression lt(StringPath path, String value) {
         Validate.isTrue(isValidString(value), "Invalid string value");
 
-        return path.loe(value);
+        return path.lt(value);
     }
 
     @Override
     protected BooleanExpression lte(StringPath path, String value) {
-        throw new UnsupportedOperationException("String value can't be searched using lte operator");
+        Validate.isTrue(isValidString(value), "Invalid string value");
+
+        return path.loe(value);
     }
 
     private boolean isValidString(String value) {
