@@ -13,7 +13,7 @@
 
 	<groupId>com.idontchop</groupId>
 	<artifactId>spring-data-querydsl-value-operators</artifactId>
-	<version>0.1.2</version>
+	<version>0.2.0</version>
 	<packaging>jar</packaging>
 
 	<name>Spring Data QueryDSL value operators</name>

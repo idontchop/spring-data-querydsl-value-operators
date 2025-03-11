@@ -27,6 +27,7 @@ public final class ExpressionProviderFactory {
                         case "EnumPath" -> new EnumPathExpressionProviderImpl();
                         case "NumberPath" -> new NumberPathExpressionProviderImpl();
                         case "DateTimePath" -> new DateTimePathExpressionProviderImpl();
+                        case "DatePath" -> new DatePathExpressionProviderImpl();
                         default -> null;
                     };
                 }
